@@ -1,13 +1,13 @@
 # Multiple website/subdomain using NGINX and let's encrypt
 > This example has been tested with Docker and DigitalOcean VPS
 
-This documentation is a how-to to make a VPS host multiple websites domain and subdomain using NGNIX.
+This documentation is a how-to to make a VPS host multiple websites domain and subdomain using NGINX and docker.
  PR are allowed, and anyone who wish to update this documentation need to **fork** and **submit a PR**.
 
 You will learn 
 - How to create a NGINX reverse proxy
 - Implement Let's encrypt for SSL certificat
-- Using two distinct image to display on a domain and subdomain
+- Using two distinct docker container to display on a domain and subdomain
 
 
 # DNS Management
@@ -67,10 +67,6 @@ rm /etc/nginx/sites-enabled/default
 ```
 
 Next we will add files to our ***conf.d*** folder.
-
-## Export a file
-
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
 
 
 # Docker servers
