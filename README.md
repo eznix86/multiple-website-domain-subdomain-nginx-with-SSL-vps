@@ -6,7 +6,7 @@ This documentation is a how-to to make a VPS host multiple websites domain and s
 
 You will learn 
 - How to create a NGINX reverse proxy
-- Implement Let's encrypt for SSL certificat
+- Implement Let's encrypt for SSL certificate
 - Using two distinct docker container to display on a domain and subdomain
 
 
@@ -24,7 +24,7 @@ On cloudflare, or DigitalOcean, create 2 two records of:
 
 |**TYPE**| **HOSTNAME**|**VALUE**|**TTL**| ...|
 |---|---|---|---|---|
-|  A | sudomain | 188.177.11.132|  3600 |  ... |
+|  A | sudomain.domain.com | 188.177.11.132|  3600 |  ... |
 |  A |  domain.com | 188.177.11.132  |  3600 |  ... |
 
 
