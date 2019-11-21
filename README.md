@@ -181,7 +181,7 @@ EOF
 #### Configuration for subdomain.domain.com
 ```bash
 # conf file for our subdomain.domain.com
-cat <<EOF >> domain.conf
+cat <<EOF >> subdomain.domain.conf
 server {
   listen 80;
   listen [::]:80;
