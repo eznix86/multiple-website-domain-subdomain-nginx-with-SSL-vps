@@ -172,6 +172,7 @@ server {
   location / {
 	proxy_pass http://static_server_ip/;
 	proxy_buffering off;
+	proxy_set_header Host $host;
 	proxy_set_header X-Real-IP \$remote_addr;
   }
 }
@@ -190,6 +191,7 @@ server {
   location / {
 	proxy_pass http://nodejs_server_ip/;
 	proxy_buffering off;
+	proxy_set_header Host $host;
 	proxy_set_header X-Real-IP \$remote_addr;
   }
 }
@@ -208,6 +210,8 @@ The result should be:
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
+Run `ln -s /etc/ngnix/conf.d/domain.conf /etc/nginx/sites-enabled/` to enable to website.
+
 And now, you can reload with `service nginx reload`.
 
 Now go on your browser, point on your `domain.com` and your `subdomain.domain.com` and all should be fine.
@@ -267,3 +271,17 @@ Now you are done !
 > Go check your files in `/etc/nginx/conf.d/xxx.conf`
 > You will notice that certbot automatically, and respectively added a configured SSL certificates for our domain  and subdomain.
 > Note: It must be **regenerated** every 3 months.
+
+Server Configuration
+
+    /etc/nginx: The Nginx configuration directory. All of the Nginx configuration files reside here.
+    /etc/nginx/nginx.conf: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.
+    /etc/nginx/sites-available/: The directory where per-site server blocks can be stored. Nginx will not use the configuration files found in this directory unless they are linked to the sites-enabled directory. Typically, all server block configuration is done in this directory, and then enabled by linking to the other directory.
+    /etc/nginx/sites-enabled/: The directory where enabled per-site server blocks are stored. Typically, these are created by linking to configuration files found in the sites-available directory.
+    /etc/nginx/snippets: This directory contains configuration fragments that can be included elsewhere in the Nginx configuration. Potentially repeatable configuration segments are good candidates for refactoring into snippets.
+
+Server Logs
+
+    /var/log/nginx/access.log: Every request to your web server is recorded in this log file unless Nginx is configured to do otherwise.
+    /var/log/nginx/error.log: Any Nginx errors will be recorded in this log.
+
