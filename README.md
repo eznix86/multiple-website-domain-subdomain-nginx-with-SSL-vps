@@ -172,7 +172,7 @@ server {
   location / {
 	proxy_pass http://static_server_ip/;
 	proxy_buffering off;
-	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Real-IP \$remote_addr;
   }
 }
 EOF
@@ -190,7 +190,7 @@ server {
   location / {
 	proxy_pass http://nodejs_server_ip/;
 	proxy_buffering off;
-	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Real-IP \$remote_addr;
   }
 }
 EOF
